@@ -27,20 +27,23 @@ class ViewController: UIViewController {
         }
         
         switch operation {
-        case "×":
-            if (operandStack.count >= 2) {
-                displayValue = operandStack.removeLast() * operandStack.removeLast()
-                enter()
-            }
-            break
-        case "+":
-            break
-        case "−":
-            break
-        case "÷":
-            break
+        case "×": performOperation(multiply)
+//        case "+":
+//        case "−":
+//        case "÷":
         default: break
         }
+    }
+    
+    func performOperation(operation: (Double, Double) -> Double) {
+        if (operandStack.count >= 2) {
+            displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
+            enter()
+        }
+    }
+
+    func multiply(op1: Double, op2: Double) -> Double {
+        return op1 * op2
     }
     
     var operandStack = Array<Double>()
