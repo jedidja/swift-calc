@@ -18,7 +18,29 @@ class ViewController: UIViewController {
         println("digit = \(digit)")
     }
     
+    //TODO: Wowwww this is bad.
     @IBAction func operate(sender: UIButton) {
+        let operation = sender.currentTitle!
+        
+        if (userIsInTheMiddleOfTypingANumber) {
+            enter()
+        }
+        
+        switch operation {
+        case "×":
+            if (operandStack.count >= 2) {
+                displayValue = operandStack.removeLast() * operandStack.removeLast()
+                enter()
+            }
+            break
+        case "+":
+            break
+        case "−":
+            break
+        case "÷":
+            break
+        default: break
+        }
     }
     
     var operandStack = Array<Double>()
