@@ -27,10 +27,12 @@ class ViewController: UIViewController {
         }
         
         switch operation {
-        case "×": performOperation(multiply)
-//        case "+":
-//        case "−":
-//        case "÷":
+        case "×": performOperation({(op1: Double, op2: Double) -> Double in
+            return op1 * op2
+            })
+            //        case "+":
+            //        case "−":
+            //        case "÷":
         default: break
         }
     }
@@ -40,10 +42,6 @@ class ViewController: UIViewController {
             displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
             enter()
         }
-    }
-
-    func multiply(op1: Double, op2: Double) -> Double {
-        return op1 * op2
     }
     
     var operandStack = Array<Double>()
