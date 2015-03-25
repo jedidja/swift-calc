@@ -51,6 +51,7 @@ class ViewController: UIViewController {
         case "−": performOperation { $1 - $0 }
         case "÷": performOperation { $1 / $0 }
         case "√": performOperation { sqrt($0) }
+        case "sin": performOperation { sin($0) }
         default: break
         }
     }
