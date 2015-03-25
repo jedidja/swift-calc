@@ -18,6 +18,25 @@ class ViewController: UIViewController {
         println("digit = \(digit)")
     }
     
+    //TODO: This is also bad.
+    @IBAction func makeDecimal() {
+        
+        // Can only have one decimal per number
+        if find(display.text!, ".") != nil {
+            return;
+        }
+        
+        if (userIsInTheMiddleOfTypingANumber) {
+            display.text = display.text! + "."
+        }
+        else {
+            // If the number is less than zero, allow
+            // the user to enter the decimal itself.
+            display.text = "."
+            userIsInTheMiddleOfTypingANumber = true
+        }
+    }
+    
     //TODO: Wowwww this is bad.
     @IBAction func operate(sender: UIButton) {
         let operation = sender.currentTitle!
