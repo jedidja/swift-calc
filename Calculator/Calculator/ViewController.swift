@@ -18,16 +18,24 @@ class ViewController: UIViewController {
         println("digit = \(digit)")
     }
     
+    @IBAction func conjurePi() {
+        // If there is anything on the display, store it
+        if userIsInTheMiddleOfTypingANumber && display.text! != "." {
+            enter()
+        }
+        
+        display.text = M_PI.description
+        enter()
+    }
+    
     //TODO: This is also bad.
     @IBAction func makeDecimal() {
         
-        // Can only have one decimal per number
-        if find(display.text!, ".") != nil {
-            return;
-        }
-        
         if (userIsInTheMiddleOfTypingANumber) {
-            display.text = display.text! + "."
+            // Can only have one decimal per number
+            if (find(display.text!, ".") == nil) {
+                display.text = display.text! + "."
+            }
         }
         else {
             // If the number is less than zero, allow

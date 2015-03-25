@@ -196,10 +196,11 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ic9-L3-qtX">
                                 <rect key="frame" x="472" y="334" width="104" height="125"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal">
+                                <state key="normal" title="π">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="conjurePi" destination="BYZ-38-t0r" eventType="touchUpInside" id="DG9-Qt-z4v"/>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NyL-yv-Ocg"/>
                                 </connections>
                             </button>
