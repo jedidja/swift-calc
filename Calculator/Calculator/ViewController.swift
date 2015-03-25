@@ -9,7 +9,10 @@ class ViewController: UIViewController {
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
         if userIsInTheMiddleOfTypingANumber {
-            display.text = display.text! + digit
+             // Can only have one decimal per number
+            if (digit == "." && find(display.text!, ".") == nil) || digit != "." {
+                    display.text = display.text! + digit
+            }
         }
         else {
             display.text = digit
@@ -26,23 +29,6 @@ class ViewController: UIViewController {
         
         display.text = M_PI.description
         enter()
-    }
-    
-    //TODO: This is also bad.
-    @IBAction func makeDecimal() {
-        
-        if (userIsInTheMiddleOfTypingANumber) {
-            // Can only have one decimal per number
-            if (find(display.text!, ".") == nil) {
-                display.text = display.text! + "."
-            }
-        }
-        else {
-            // If the number is less than zero, allow
-            // the user to enter the decimal itself.
-            display.text = "."
-            userIsInTheMiddleOfTypingANumber = true
-        }
     }
     
     //TODO: Wowwww this is bad.
